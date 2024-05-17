@@ -17,6 +17,11 @@ urlpatterns = [
     path("productocategoria/update/<int:pk>", views.ProductoCategoriaUpdate.as_view(), name="productocategoria_update"),
     # path("productocategoria/delete/<int:pk>", views.productocategoria_delete, name="productocategoria_delete"),
     path("productocategoria/delete/<int:pk>", views.ProductoCategoriaDelete.as_view(), name="productocategoria_delete"),
+    path("cervezas/", views.cervezas, name="cervezas"),
+    path("gin/", views.gin, name="gin"),
+    path("promociones/", views.promociones, name="promociones"),
+    path("quesos/", views.quesos, name="quesos"),
+    
 ]
 
 # Producto

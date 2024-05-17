@@ -13,6 +13,18 @@ from django.views.generic import (
 
 from . import forms, models
 
+def cervezas(request):
+    return render(request, "producto/cervezas.html")
+
+def gin(request):
+    return render(request, "producto/gin.html")
+
+def quesos(request):
+    return render(request, "producto/quesos.html")
+
+def promociones(request):
+    return render(request, "producto/promociones.html")
+
 
 def home(request):
     return render(request, "producto/index.html")
@@ -46,43 +58,12 @@ class ProductoCategoriaList(ListView):
             object_list = models.ProductoCategoria.objects.all()
         return object_list
 
-    # def get_queryset(self):
-    #     queryset = super().get_queryset()
-    #     consulta = self.request.GET.get("consulta")
-    #     if consulta:
-    #         queryset = queryset.filter(Q(nombre__icontains=consulta) | Q(descripcion__icontains=consulta))
-    #     return queryset
-
-
-# CREATE
-# def productocategoria_create(request):
-#     if request.method == "POST":
-#         form = forms.ProductoCategoriaForm(request.POST)
-#         if form.is_valid:
-#             form.save()
-#             return redirect("producto:home")
-#     else:  # request.method == "GET"
-#         form = forms.ProductoCategoriaForm()
-#     return render(request, "producto/productocategoria_create.html", context={"form": form})
-
 
 class ProductoCategoriaCreate(CreateView):
     model = models.ProductoCategoria
     form_class = forms.ProductoCategoriaForm
     success_url = reverse_lazy("producto:home")
 
-
-# UPDATE
-# def productocategoria_update(request, pk: int):
-#     query = models.ProductoCategoria.objects.get(id=pk)
-#     if request.method == "POST":
-#         form = forms.ProductoCategoriaForm(request.POST, instance=query)
-#         if form.is_valid:
-#             form.save()
-#             return redirect("producto:productocategoria_list")
-#     else:  # request.method == "GET"
-#         form = forms.ProductoCategoriaForm(instance=query)
-#     return render(request, "producto/productocategoria_update.html", context={"form": form})
 
 
 class ProductoCategoriaUpdate(UpdateView):
@@ -91,29 +72,18 @@ class ProductoCategoriaUpdate(UpdateView):
     success_url = reverse_lazy("producto:productocategoria_list")
 
 
-# DETAIL
-# def productocategoria_detail(request, pk: int):
-#     query = models.ProductoCategoria.objects.get(id=pk)
-#     return render(request, "producto/productocategoria_detail.html", {"producto": query})
 
 
 class ProductoCategoriaDetail(DetailView):
     model = models.ProductoCategoria
-    # context_object_name = "producto"
+    
 
 
-# DELETE
-# def productocategoria_delete(request, pk: int):
-#     query = models.ProductoCategoria.objects.get(id=pk)
-#     if request.method == "POST":
-#         query.delete()
-#         return redirect("producto:productocategoria_list")
-#     return render(request, "producto/productocategoria_delete.html", context={"producto": query})
 
 
 class ProductoCategoriaDelete(LoginRequiredMixin, DeleteView):
     model = models.ProductoCategoria
-    # template_name = "producto/productocategoria_delete.html"
+    
     success_url = reverse_lazy("producto:productocategoria_list")
 
 
@@ -151,3 +121,5 @@ class ProductoDetail(DetailView):
 class ProductoDelete(LoginRequiredMixin, DeleteView):
     model = models.Producto
     success_url = reverse_lazy("producto:producto_list")
+
+
