@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block titulo %}
+    {% include 'core/components/titulo1.html' with titulo="Tigre Blanco Bebidas" %}
+{% endblock titulo %}
+{% block contenido %}
+
+    {% if user.is_authenticated %}
+        {{ mensaje }}
+        <p class="fs-2">Cerveza Artesanal{{ user.username }}</p>
+    {% endif %}
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0"
+                 src="{% static 'core/img/tigreblanco.png' %}"
+                 alt="..." />
+        </div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Cerveza Artesanal</h1>
+            <p>
+                Somos un grupo de amigos apasionados que hemos emprendido una emocionante aventura en el mundo del gin artesanal. Nuestra misión es crear la mejor versión de esta maravillosa bebida, renovándonos día a día y explorando nuevas fronteras en sabor y calidad.
+
+En Tigre Blanco, creemos que cada botella de gin debe ser una experiencia única y memorable. Para lograrlo, utilizamos botánicos seleccionados de todo el mundo, infundiéndolos con nuestro toque personal y dedicación. Cada destilación es un testimonio de nuestra pasión y compromiso por ofrecer un gin que no solo se disfrute, sino que también inspire a quienes lo prueban.
+
+Nuestro proceso artesanal nos permite experimentar y perfeccionar constantemente nuestras recetas, asegurando que cada lote de gin que producimos sea tan emocionante y delicioso como el anterior. Nos enorgullece ser parte de una comunidad vibrante y apasionada por el gin, y esperamos que al compartir nuestras creaciones, puedas disfrutar y enamorarte tanto como nosotros de este fabuloso mundo.
+
+Unete a nosotros en este viaje y descubre las infinitas posibilidades que ofrece el gin artesanal de Tigre Blanco.
+            </p>
+            <div>
+                <a class="btn btn-secondary" href="{% url 'core:home' %}" role="button">Volver a Inicio</a>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock contenido %}
