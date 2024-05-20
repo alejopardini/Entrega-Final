@@ -1,0 +1,19 @@
+.card-custom {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-custom .card-body {
+    padding: 20px;
+}
+
+.card-custom .card-footer {
+    text-align: center;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+

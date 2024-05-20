@@ -12,6 +12,9 @@
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == '/about/' %} active {% endif %}" href="{% url 'core:about' %}">Nosotros</a>
                 </li>
+                <li>
+                    <a class="nav-link {% if request.path == '/about/' %} active {% endif %}" href="{% url 'core:producto' %}">Productos</a>
+                </li>
                 {% if user.is_authenticated %}
                     {% if user.is_staff %}
                         <li class="nav-item">

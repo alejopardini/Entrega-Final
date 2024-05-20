@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from .models import Producto
 from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -14,34 +15,42 @@ from django.views.generic import (
 from . import forms, models
 
 def cervezas(request):
-    return render(request, "producto/cervezas.html")
+    cervezas_list = Producto.objects.filter(categoria_id__nombre='Cervezas')
+    context = {
+        'cervezas_list': cervezas_list
+    }
+    return render(request, "producto/cervezas.html",context)
 
-def gin(request):
-    return render(request, "producto/gin.html")
 
 def quesos(request):
-    return render(request, "producto/quesos.html")
+    quesos_list = Producto.objects.filter(categoria_id__nombre='Quesos')
+    context = {
+        'quesos_list': quesos_list
+    }
+    return render(request, "producto/quesos.html",context)
 
 def promociones(request):
-    return render(request, "producto/promociones.html")
+    promociones_list = Producto.objects.filter(categoria_id__nombre='Promociones')
+    context = {
+        'promociones_list': promociones_list
+    }
+    return render(request, 'producto/promociones.html', context)
 
 
 def home(request):
     return render(request, "producto/index.html")
 
 
-# *** PRODUCTOCATEOGORIA
 
-# LIST
-# def productocategoria_list(request):
-#     consulta = request.GET.get("consulta", None)
-#     if consulta:
-#         print(consulta)
-#         query = models.ProductoCategoria.objects.filter(nombre__icontains=consulta)
-#     else:
-#         query = models.ProductoCategoria.objects.all()
-#     context = {"productos": query}
-#     return render(request, "producto/productocategoria_list.html", context)
+
+
+def gin(request):
+    productos_gin = Producto.objects.filter(categoria_id__nombre='Gin Artesanal')
+    context = {
+        'productos_gin': productos_gin
+    }
+    return render(request, 'producto/gin.html', context)
+
 
 
 class ProductoCategoriaList(ListView):

@@ -1,0 +1,92 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block titulo %}
+    {% include 'core/components/titulo1.html' with titulo="Tigre Blanco Bebidas" %}
+{% endblock titulo %}
+{% block contenido %}
+
+<!-- Productos -->
+<section class="mb-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-lg-12 text-center">
+            <h1 class="font-weight-light">Productos</h1>
+        </div>
+    </div>
+</section>
+<!-- Imagen Principal -->
+<section class="mb-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-lg-12 text-center">
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/picada.png' %}" alt="Picada" />
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Fila de Tarjetas 1 -->
+<section class="mb-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-6 col-lg-5 mb-4">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Gin Artesanal</h2>
+                    <p class="card-text">El gin de la casa, hecho por sus propios dueños, innovando día a día gracias a ustedes y sus devoluciones. Vas a poder encontrar las distintas variedades que...</p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-secondary btn-sm" href="{% url 'producto:gin' %}">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-5 mb-4">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Quesos y embutidos</h2>
+                    <p class="card-text">Los quesos y embutidos que buscamos en Tigre Blanco están pensados para acompañar las distintas bebidas que vas a encontrar en nuestra página, traemos de Tandil y alrededores los mejores quesos y...</p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-secondary btn-sm" href="{% url 'producto:quesos' %}">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fila de Tarjetas 2 -->
+<section class="mb-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-6 col-lg-5 mb-4">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Cervezas</h2>
+                    <p class="card-text">En una exhaustiva búsqueda por todo el país seleccionamos las mejores cervezas de cada estilo para poder llevarlas a tu casa. Desde Bariloche hasta Buenos Aires...</p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-secondary btn-sm" href="{% url 'producto:cervezas' %}">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-5 mb-4">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Promociones semanales</h2>
+                    <p class="card-text">Encontrá acá las distintas promociones semanales que se van actualizando.</p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-secondary btn-sm" href="{% url 'producto:promociones' %}">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Botón Volver a Inicio -->
+<section class="mb-5 text-center">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-lg-12">
+            <a class="btn btn-secondary" href="{% url 'core:home' %}" role="button">Volver a Inicio</a>
+        </div>
+    </div>
+</section>
+
+{% endblock contenido %}

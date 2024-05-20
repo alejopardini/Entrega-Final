@@ -12,6 +12,9 @@ def home(request):
 def about(request):
     return render(request, "core/about.html")
 
+def producto(request):
+    return render(request, "core/producto.html")
+
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
     template_name = "core/login.html"
