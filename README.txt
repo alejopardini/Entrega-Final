@@ -1,3 +1,14 @@
+## Introducción
+
+Este proyecto es una aplicación web desarrollada en Django que permite gestionar un catálogo de productos como quesos, cervezas artesanales, promociones y gin artesanal. Incluye funcionalidades tanto para usuarios comunes como para administradores.
+
+## Requisitos del Sistema
+
+- Python 3.x
+- Django 3.x o superior
+- SQLite3 (por defecto)
+- Navegador web moderno
+
 Funcionalidades generales
 Lista las principales funcionalidades del proyecto y cómo acceder a ellas.
 
@@ -24,7 +35,6 @@ El proyecto incluye una interfaz de administrador que permite gestionar los dato
    -Ingresar credenciales de superusuario para acceder al panel de administración.
 
    Funcionalidades Disponibles
-   -About: Permite gestionar la información relacionada con la empresa.
    -Productos y categorías: Permite administrar los productos y castegorías disponibles en el sistema
    -Usuarios: Permite gestionar los usuarios registrados en el sistema y ver su información (nombre, apellido, email, etc)
    
