@@ -17,17 +17,19 @@
         </div>
         <div class="col-lg-5">
             <h1 class="font-weight-light">Promociones</h1>
+            <p>Encontrá acá las distintas promociones semanales que se van actualizando.</p>
             <div class="promociones-list">
                 {% for promocion in promociones_list %}
                     <div class="promocion-item mb-3 d-flex align-items-center justify-content-between">
                         <h4 class="mb-0">{{ promocion.nombre }}</h4>
                         <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailsModal{{ forloop.counter }}">Detalles y precio</button>
                     </div>
+                    
                 {% endfor %}
             </div>
             <div>
                 <a class="btn btn-secondary" href="{% url 'core:producto' %}" role="button">Volver a Productos</a>
-            </div>
+                <a class="btn btn-secondary" href="{% url 'core:home' %}" role="button">Volver a Inicio</a></div>
         </div>
     </div>
 </section>

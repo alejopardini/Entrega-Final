@@ -17,6 +17,7 @@
         </div>
         <div class="col-lg-5">
             <h1 class="font-weight-light">Quesos</h1>
+            <p>Los quesos y embutidos que buscamos en Tigre Blanco están pensados para acompañar las distintas bebidas que vas a encontrar en nuestra página, traemos de Tandil y alrededores los mejores quesos saborizados y clásicos que irán variando por temporada.</p>
             <div class="quesos-list">
                 {% for queso in quesos_list %}
                     <div class="queso-item mb-3 d-flex align-items-center justify-content-between">
@@ -27,7 +28,7 @@
             </div>
             <div>
                 <a class="btn btn-secondary" href="{% url 'core:producto' %}" role="button">Volver a Productos</a>
-            </div>
+                <a class="btn btn-secondary" href="{% url 'core:home' %}" role="button">Volver a Inicio</a></div>
         </div>
     </div>
 </section>

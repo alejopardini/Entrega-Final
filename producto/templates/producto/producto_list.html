@@ -1,6 +1,7 @@
 {% extends 'core/base.html' %}
+
 {% block titulo %}
-    Productos: Lista de Productos
+<h1 class="logout">Productos: Lista de Productos</h1>
 {% endblock titulo %}
 {% block contenido %}
     <div class="container my-5">
@@ -41,8 +42,8 @@
         </table>
         <div class="mt-4">
             <a class="btn btn-secondary"
-               href="{% url 'producto:home' %}"
-               role="button">Volver al inicio de Producto</a>
+               href="{% url 'producto:editar_producto' %}"
+               role="button">Volver al Producto</a>
         </div>
     </div>
 {% endblock contenido %}

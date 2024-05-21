@@ -40,6 +40,9 @@ def promociones(request):
 def home(request):
     return render(request, "producto/index.html")
 
+def editar_producto(request):
+    return render(request, "producto/editar_producto.html")
+
 
 
 

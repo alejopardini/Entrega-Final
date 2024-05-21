@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-    Productos: Borrar un Producto
+<h1 class="logout">Productos: Borrar un Producto</h1>
 {% endblock titulo %}
 
 {% block contenido %}
@@ -12,7 +12,7 @@
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Confirmar</button>
     </form>
-    <div class="fs-3 pb-4">
+    <div class="btn btn-secondary white" role="button">
         <a href="{% url 'producto:home' %}">Volver al inicio de Producto</a>
     </div>
 

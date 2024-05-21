@@ -15,6 +15,9 @@ def about(request):
 def producto(request):
     return render(request, "core/producto.html")
 
+def editar_producto(request):
+    return render(request, "producto/index.html")
+
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
     template_name = "core/login.html"

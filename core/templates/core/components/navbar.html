@@ -15,18 +15,11 @@
                 <li>
                     <a class="nav-link {% if request.path == '/about/' %} active {% endif %}" href="{% url 'core:producto' %}">Productos</a>
                 </li>
+                {% if user.is_staff %}
+                <li><a class="nav-link {% if request.path == '/about/' %} active {% endif %}" href="{% url 'producto:editar_producto' %}">Editar Productos</a></li>
+                {% endif %}
                 {% if user.is_authenticated %}
-                    {% if user.is_staff %}
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/usuario/' %} active {% endif %}" href="{% url 'usuario:home' %}">Usuarios</a>
-                        </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/producto/' %} active {% endif %}" href="{% url 'producto:home' %}">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/editar_perfil/' %} active {% endif %}" href="{% url 'usuario:editar_perfil' %}">Editar Perfil</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-bg-info">{{ user.username }}</a>
                     </li>

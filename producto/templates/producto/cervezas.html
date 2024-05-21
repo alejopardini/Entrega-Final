@@ -17,6 +17,7 @@
         </div>
         <div class="col-lg-5">
             <h1 class="font-weight-light">Cervezas</h1>
+            <p>En una exhaustiva búsqueda por todo el país seleccionamos las mejores cervezas de cada estilo para poder llevarlas a tu casa. Desde Bariloche hasta Buenos Aires, recorriendo los puntos cerveceros más importantes de Argentina para ir variando los estilos y marcas cada temporada.</p>
             <div class="cervezas-list">
                 {% for cerveza in cervezas_list %}
                     <div class="cerveza-item mb-3 d-flex align-items-center justify-content-between">
@@ -26,8 +27,8 @@
                 {% endfor %}
             </div>
             <div>
-                <a class="btn btn-secondary" href="{% url 'core:producto' %}" role="button">Volver a Inicio</a>
-            </div>
+                <a class="btn btn-secondary" href="{% url 'core:producto' %}" role="button">Volver a Productos</a>
+                <a class="btn btn-secondary" href="{% url 'core:home' %}" role="button">Volver a Inicio</a></div>
         </div>
     </div>
 </section>

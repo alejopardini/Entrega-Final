@@ -18,6 +18,7 @@
         </div>
         <div class="col-lg-5">
             <h1 class="font-weight-light">Gin Artesanal</h1>
+            <p>El gin de la casa, hecho por sus propios dueños, innovando día a día gracias a ustedes y sus devoluciones. Vas a poder encontrar las distintas variedades que vamos experimentando para innovar.</p>
             <div class="product-list">
                 {% for producto in productos_gin %}
                     <div class="product-item mb-3 d-flex align-items-center justify-content-between">
@@ -28,7 +29,7 @@
             </div>
             <div>
                 <a class="btn btn-secondary" href="{% url 'core:producto' %}" role="button">Volver a Productos</a>
-            </div>
+                <a class="btn btn-secondary" href="{% url 'core:home' %}" role="button">Volver a Inicio</a></div>
         </div>
     </div>
 </section>

@@ -24,3 +24,4 @@ def editar_perfil(request):
 @login_required
 def perfil_actualizado(request):
     return render(request, 'usuario/perfil_actualizado.html')
+
