@@ -13,6 +13,9 @@ urlpatterns = [
     path("logout/", LogoutView.as_view(template_name="core/logout.html"), name="logout"),
     path("register/", views.register, name="register"),
     path("about/", views.about, name="about"),
+    path("producto/", views.producto, name="producto"),
+    path("editar_producto/", views.editar_producto, name="editar_producto"),
+    
 ]
 
 urlpatterns += staticfiles_urlpatterns()

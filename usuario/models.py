@@ -14,10 +14,8 @@ class Pais(models.Model):
 class Usuario(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    nacimiento = models.DateField(null=True)
-    pais_origen_id = models.ForeignKey(
-        Pais, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="país de origen"
-    )
+    email = models.EmailField(null=True)
+    username = models.CharField(max_length=10)
 
     def __str__(self):
         return f"{self.apellido}, {self.nombre}"

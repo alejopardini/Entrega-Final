@@ -1,20 +1,23 @@
 {% extends 'core/base.html' %}
-
 {% block titulo %}
-    Productos: Cambiar una Categoría de Productos
+<h1 class="logout">Productos: Cambiar una Categoría de Productos</h1>
 {% endblock titulo %}
 
 {% block contenido %}
-    
-    <form method="post">
+<div class="container mt-5">
+    <form method="post" class="col-md-6">
         {% csrf_token %}
-        <table>
+        <table class="table">
             {{ form.as_table }}
         </table>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
-    <div class="fs-3 pb-4">
-        <a href="{% url 'producto:productocategoria_list' %}">Volver</a>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col text-center">
+            <a href="{% url 'producto:productocategoria_list' %}" class="btn btn-secondary">Volver</a>
+        </div>
     </div>
-
+</div>
 {% endblock contenido %}

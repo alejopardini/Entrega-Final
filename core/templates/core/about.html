@@ -5,19 +5,16 @@
 {% endblock titulo %}
 {% block contenido %}
 
-    {% if user.is_authenticated %}
-        {{ mensaje }}
-        <p class="fs-2">Nosotros {{ user.username }}</p>
-    {% endif %}
+
     <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
         <div class="col-lg-7">
             <img class="img-fluid rounded mb-4 mb-lg-0"
-                 src="{% static 'core/img/tigreblanco.png' %}"
+                 src="{% static 'core/img/nosotros.png' %}"
                  alt="..." />
         </div>
         <div class="col-lg-5">
-            <h1 class="font-weight-light">Nosotros</h1>
+            <h1 class="font-weight-light">Nosotros</h1>    
             <p>
                 Somos un grupo de amigos apasionados que hemos emprendido una emocionante aventura en el mundo del gin artesanal. Nuestra misión es crear la mejor versión de esta maravillosa bebida, renovándonos día a día y explorando nuevas fronteras en sabor y calidad.
 

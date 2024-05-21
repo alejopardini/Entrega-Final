@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+<h1 class="logout">Editar Perfil</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="id_username" class="form-label">Nombre de Usuario:</label>
+          {{ form.username }}
+        </div>
+        <div class="mb-3">
+          <label for="id_email" class="form-label">Correo Electrónico:</label>
+          {{ form.email }}
+        </div>
+        <div class="d-grid gap-2">
+          <a class="btn btn-primary" href="{% url 'usuario:perfil_actualizado' %}">Guardar Cambios</a>
+        </div>
+      </form>
+      <a href="{% url 'core:home' %}" class="btn btn-secondary">Cancelar</a>
+    </div>
+  </div>
+</div>
+{% endblock contenido %}

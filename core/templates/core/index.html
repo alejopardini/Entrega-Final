@@ -13,14 +13,14 @@
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
         <div class="col-lg-7">
             <img class="img-fluid rounded mb-4 mb-lg-0"
-                 src="{% static 'core/img/tigreblanco.png' %}"
-                 alt="..." />
+                 src="{% static 'core/img/tigre.png' %}"
+                 alt="tigre blanco" />
         </div>
         <div class="col-lg-5">
-            <h1 class="font-weight-light">Tigre Blanco Bebidas</h1>
+            <h1 class="font-weight-light ">Tigre Blanco Bebidas</h1>
             <p>
                 Tigre Blanco es una innovadora plataforma dedicada a los entusiastas del gin, un lugar donde los amantes de esta espirituosa bebida pueden compartir sus experiencias, reseñas y recomendaciones sobre una amplia variedad de productos relacionados con el gin. Esta página no solo sirve como una guía completa para quienes buscan descubrir nuevos sabores y marcas, sino que también fomenta una comunidad activa y apasionada por el mundo del gin.
-                <br>Unite a nuestro grupo de  <a class="btn btn-primary"   href="https://wa.me/542619999999"  target="_blank"> WhatsApp</a> para que el administrador te registre!
+                <br>Hace tu pedido por <a class="btn btn-primary"   href="https://wa.me/5492213993941"  target="_blank"> WhatsApp</a>
             </p>
             
         </div>
@@ -28,16 +28,16 @@
     <!-- Call to Action-->
     <div class="card text-white bg-secondary my-5 py-4 text-center">
         <div class="card-body">
-            <p class="text-white m-0">
-                Reseñas y recomendaciones de los usuarios. Registrate para dejar la tuya!
+            <p class="productos">
+                Registrate para recibir novedades de nuestros productos, promociones y descuentos!
             </p>
         </div>
     </div>
     <!-- Content Row-->
     <div class="row gx-4 gx-lg-5">
-        {% include 'core/components/card.html' with titulo="Tarjeta 1" texto="Promociones" %}
-        {% include 'core/components/card.html' with titulo="Tarjeta 2" texto="Lorem ipsum dolor sit amet consectetur adipisicing elit. In perferendis repellat quo earum ut, ducimus repudiandae maxime eaque sint, omnis placeat ex necessitatibus rerum dicta itaque dolorem consequatur deleniti praesentium?" %}
-        {% include 'core/components/card.html' with titulo="Tarjeta 3" %}
-        {% include 'core/components/card.html' with texto="Promociones" %}
+        {% include 'core/components/card.html' with titulo="Gin Artesanal" texto="El gin de la casa, hecho por sus propios dueños, innovando dia a dia gracias a ustedes y sus devoluciones. Vas a poder encontrar las distintas variedades que..." %}
+        {% include 'core/components/card2.html' with titulo="Quesos y embutidos" texto="Los quesos y embutidos que buscamos en Tigre Blanco están pensados para acompañar las distintas bebibas que vas a encontrar en nuestra página, traemos de Tandil y alrededores los mejores quesos y..." %}
+        {% include 'core/components/card3.html' with titulo="Cervezas" texto="En una exhaustiva búsqueda por todo el país seleccionamos las mejores cervezas de cada estilo para poder llevarlas a tu casa. Desde Bariloche hasta Buenos Aires..."%}
+        {% include 'core/components/card4.html' with titulo="Promociones semanales" texto="Encontrá aca las distintas promociones semanales que se van actualizando" %}
     </div>
 {% endblock contenido %}

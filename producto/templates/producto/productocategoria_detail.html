@@ -1,6 +1,7 @@
 {% extends 'core/base.html' %}
+
 {% block titulo %}
-    Productos: Detalle de una Categoría de Producto
+<h1 class="logout">Productos: Detalle de una Categoría de Producto</h1>
 {% endblock titulo %}
 
 {% block contenido %}
@@ -10,7 +11,7 @@
         <li>Descripción: {{ object.descripcion }}</li>
     </ul>
 
-    <div class="fs-3 pb-4">
+    <div class="btn btn-secondary" role="button">
         <a href="{% url 'producto:productocategoria_list' %}">Volver</a>
     </div>
 

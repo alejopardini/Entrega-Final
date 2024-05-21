@@ -1,0 +1,59 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block titulo %}
+    {% include 'core/components/titulo1.html' with titulo="Quesos" %}
+{% endblock titulo %}
+{% block contenido %}
+
+{% if user.is_authenticated %}
+    {{ mensaje }}
+{% endif %}
+
+<!-- Imagen Principal -->
+<section class="mb-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/quesos.png' %}" alt="Quesos" />
+        </div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Quesos</h1>
+            <p>Los quesos y embutidos que buscamos en Tigre Blanco están pensados para acompañar las distintas bebidas que vas a encontrar en nuestra página, traemos de Tandil y alrededores los mejores quesos saborizados y clásicos que irán variando por temporada.</p>
+            <div class="quesos-list">
+                {% for queso in quesos_list %}
+                    <div class="queso-item mb-3 d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0">{{ queso.nombre }}</h4>
+                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailsModal{{ forloop.counter }}">Detalles y precio</button>
+                    </div>
+                {% endfor %}
+            </div>
+            <div>
+                <a class="btn btn-secondary" href="{% url 'core:producto' %}" role="button">Volver a Productos</a>
+                <a class="btn btn-secondary" href="{% url 'core:home' %}" role="button">Volver a Inicio</a></div>
+        </div>
+    </div>
+</section>
+
+<!-- Modales de Detalles -->
+{% for queso in quesos_list %}
+<div class="modal fade" id="detailsModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="detailsModalLabel{{ forloop.counter }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailsModalLabel{{ forloop.counter }}">{{ queso.nombre }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>{{ queso.descripcion }}</p>
+                <p><strong>Precio:</strong> ${{ queso.precio }}</p>
+                <p><strong>Unidad de Medida:</strong> {{ queso.unidad_medida }}</p>
+                <p><strong>Cantidad:</strong> {{ queso.cantidad }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock contenido %}

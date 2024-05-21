@@ -1,31 +1,38 @@
 {% extends 'core/base.html' %}
+
 {% block titulo %}
-    Productos: Lista de Categoría de Productos
+<h1 class="logout">Lista de Categoría de Productos</h1>
 {% endblock titulo %}
 
 {% block contenido %}
-
-    <div class="py-lg-4 ">
-        <form action="{% url 'producto:productocategoria_list' %}" method="get">
-            <input type="text" name="consulta" placeholder="Buscar...">
-        </form>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="{% url 'producto:productocategoria_list' %}" method="get" class="d-flex mb-3">
+                <input type="text" name="consulta" class="form-control me-2" placeholder="Buscar...">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+            <ul class="list-group">
+                {% for producto in object_list %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ producto.nombre }}
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'producto:productocategoria_detail' producto.id %}" class="btn btn-info btn-sm me-1">Detalle</a>
+                        <a href="{% url 'producto:productocategoria_update' producto.id %}" class="btn btn-warning btn-sm me-1">Cambiar</a>
+                        <a href="{% url 'producto:productocategoria_delete' producto.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-    <ul>
-        {% comment  %}
-        {% for producto in productos %}
-        {% endcomment %}
+</div>
 
-        {% for producto in object_list %}
-            <li>{{ producto.nombre }}
-                <a href="{% url 'producto:productocategoria_detail' producto.id %}">Detalle</a>
-                <a href="{% url 'producto:productocategoria_update' producto.id %}">Cambiar</a>
-                <a href="{% url 'producto:productocategoria_delete' producto.id %}">Borrar</a>
-            </li>
-        {% endfor %}
-    </ul>
-
-    <div class="fs-3 pb-4">
-        <a href="{% url 'producto:home' %}">Volver al inicio de Producto</a>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col text-center">
+            <a href="{% url 'producto:editar_producto' %}" class="btn btn-secondary">Volver al inicio de Producto</a>
+        </div>
     </div>
-
+</div>
 {% endblock contenido %}

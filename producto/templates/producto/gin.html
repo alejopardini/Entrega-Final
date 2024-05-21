@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block titulo %}
+    {% include 'core/components/titulo1.html' with titulo="Tigre Blanco Bebidas" %}
+{% endblock titulo %}
+{% block contenido %}
+
+{% if user.is_authenticated %}
+    {{ mensaje }}
+    <p class="fs-2">Gin Artesanal {{ user.username }}</p>
+{% endif %}
+
+<!-- Imagen Principal -->
+<section class="mb-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/tigreblanco.png' %}" alt="Tigre Blanco" />
+        </div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Gin Artesanal</h1>
+            <p>El gin de la casa, hecho por sus propios dueños, innovando día a día gracias a ustedes y sus devoluciones. Vas a poder encontrar las distintas variedades que vamos experimentando para innovar.</p>
+            <div class="product-list">
+                {% for producto in productos_gin %}
+                    <div class="product-item mb-3 d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0">{{ producto.nombre }}</h4>
+                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailsModal{{ forloop.counter }}">Detalles y precio</button>
+                    </div>
+                {% endfor %}
+            </div>
+            <div>
+                <a class="btn btn-secondary" href="{% url 'core:producto' %}" role="button">Volver a Productos</a>
+                <a class="btn btn-secondary" href="{% url 'core:home' %}" role="button">Volver a Inicio</a></div>
+        </div>
+    </div>
+</section>
+
+<!-- Modales de Detalles -->
+{% for producto in productos_gin %}
+<div class="modal fade" id="detailsModal{{ forloop.counter }}" tabindex="-1" aria-labelledby="detailsModalLabel{{ forloop.counter }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailsModalLabel{{ forloop.counter }}">{{ producto.nombre }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>{{ producto.descripcion }}</p>
+                <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+                <p><strong>Unidad de Medida:</strong> {{ producto.unidad_medida }}</p>
+                <p><strong>Cantidad:</strong> {{ producto.cantidad }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock contenido %}

@@ -1,26 +1,24 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-    Producto: 
-    {% if form.instance.pk %}
-        Editar
-    {% else %}
-        Crear
-    {% endif %}
-    Categoría de Productos
+<h1 class="logout">Productos: {% if form.instance.pk %}Editar{% else %}Crear{% endif %} Categoría de Producto</h1>
 {% endblock titulo %}
 
 {% block contenido %}
-    
-    <form method="post">
+<div class="container mt-5">
+    <form method="post" class="col-md-6">
         {% csrf_token %}
-        <table>
+        <table class="table">
             {{ form.as_table }}
         </table>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
-    <div class="fs-3 pb-4">
-        <a href="{% url 'producto:home' %}">Volver al inicio de Producto</a>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col text-center">
+            <a href="{% url 'producto:editar_producto' %}" class="btn btn-secondary">Volver al inicio de Producto</a>
+        </div>
     </div>
-
+</div>
 {% endblock contenido %}
